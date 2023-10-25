@@ -51,6 +51,7 @@ void	set_collectible_count(t_game *game)
 	collectibles->got = 0;
 	game->exit_open = 0;
 	map = game->map;
+	game->saved_pos = '0';
 	y = 1;
 	while (y <= map->y)
 	{

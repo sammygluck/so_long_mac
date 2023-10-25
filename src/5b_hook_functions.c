@@ -27,10 +27,11 @@ static void	move_left(t_game *game)
 	{
 		if (game->col.got == game->col.total)
 			win_game(game);
-		else if (game->col.got != game->col.total)
-			return ;
 	}
-	set_value(game->map, '0', x, y);
+	set_value(game->map, game->saved_pos, x, y);
+	game->saved_pos = get_value(game->map, x - 1, y);
+	if (game->saved_pos == 'C')
+		game->saved_pos = '0';
 	set_value(game->map, 'P', x - 1, y);
 	game->player.x_pos = x - 1;
 	game->player.moves += 1;
@@ -52,10 +53,11 @@ static void	move_right(t_game *game)
 	{
 		if (game->col.got == game->col.total)
 			win_game(game);
-		else if (game->col.got != game->col.total)
-			return ;
 	}
-	set_value(game->map, '0', x, y);
+	set_value(game->map, game->saved_pos, x, y);
+	game->saved_pos = get_value(game->map, x + 1, y);
+	if (game->saved_pos == 'C')
+		game->saved_pos = '0';
 	set_value(game->map, 'P', x + 1, y);
 	game->player.x_pos = x + 1;
 	game->player.moves += 1;
@@ -77,10 +79,11 @@ static void	move_up(t_game *game)
 	{
 		if (game->col.got == game->col.total)
 			win_game(game);
-		else if (game->col.got != game->col.total)
-			return ;
 	}
-	set_value(game->map, '0', x, y);
+	set_value(game->map, game->saved_pos, x, y);
+	game->saved_pos = get_value(game->map, x, y - 1);
+	if (game->saved_pos == 'C')
+		game->saved_pos = '0';
 	set_value(game->map, 'P', x, y - 1);
 	game->player.y_pos = y - 1;
 	game->player.moves += 1;
@@ -102,10 +105,11 @@ static void	move_down(t_game *game)
 	{
 		if (game->col.got == game->col.total)
 			win_game(game);
-		else if (game->col.got != game->col.total)
-			return ;
 	}
-	set_value(game->map, '0', x, y);
+	set_value(game->map, game->saved_pos, x, y);
+	game->saved_pos = get_value(game->map, x, y + 1);
+	if (game->saved_pos == 'C')
+		game->saved_pos = '0';
 	set_value(game->map, 'P', x, y + 1);
 	game->player.y_pos = y + 1;
 	game->player.moves += 1;

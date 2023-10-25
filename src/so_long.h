@@ -6,7 +6,7 @@
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 15:28:24 by sgluck            #+#    #+#             */
-/*   Updated: 2023/08/03 16:00:29 by sgluck           ###   ########.fr       */
+/*   Updated: 2023/10/25 15:16:39 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_game
 	void			*mlx;
 	void			*mlx_win;
 	char			*filename;
+	char			saved_pos;
 	int				exit_open;
 }	t_game;
 
